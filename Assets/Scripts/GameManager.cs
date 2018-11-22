@@ -25,11 +25,19 @@ public class GameManager : MonoBehaviour
     public void MakeOption()
     {
         Stack<int> plusNum = new Stack<int>();
+        int ansTurn = Random.Range(0, 3);
         while (plusNum.Count < 3)
         {
-            int a = Random.Range(-1, 2);
-            if (!plusNum.Contains(a))
-                plusNum.Push(a);
+            if (plusNum.Count.Equals(ansTurn))
+            {
+                plusNum.Push(0);
+            }
+            else
+            {
+                int a = Random.Range(-99, 100);
+                if (!plusNum.Contains(a))
+                    plusNum.Push(a);
+            }
         }
 
         for (int i = 0; i < button.Length; i++)
