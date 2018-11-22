@@ -40,35 +40,35 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < button.Length; i++)
-        {
-            button[i].onClick.AddListener(() => isAnswerToADD());
-        }
+        
 
         for (int i = 0; i < button.Length; ++i)
         {
             t[i] = button[i].GetComponentInChildren<Text>();
+                
         }
 
         for (int i = 0; i < t.Length; ++i)
         {
             t[i].text = (Ran1 + Ran2 + plusNum.Pop()).ToString();
+            var text = t[i].text;
+            button[i].onClick.AddListener(() => isAnswerToADD(text));
         }
 
     }
 
-    //bool isAnswerToADD()
-    //{
-    //    string answerNum = (Ran1 + Ran2).ToString();
-        
-    //    //if (temp.text.Equals(answerNum))
-    //    //{
-    //    //    print("정답");
-    //    //    return true;
-    //    //}
-    //    //else
-    //    //    print("틀림");
-    //    //    return false;
-        
-    //}
+    bool isAnswerToADD(string text)
+    {
+        string answerNum = (Ran1 + Ran2).ToString();
+        if (text.Equals(answerNum))
+        {
+            print("정답");
+            return true;
+        }
+        else
+        {
+            print("틀림");
+            return false;
+        }
+    }
 }
