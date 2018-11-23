@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    //dwdjjqiow
+
     int Ran1 = 0;
     int Ran2 = 0;
     public Text Rantext1;
